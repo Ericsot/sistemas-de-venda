@@ -17,5 +17,5 @@ Este repositório contém um modelo de banco de dados para um sistema simples de
 ## 🗃️ Arquivos
 
 - `modelo.sql`: Script SQL com a criação de todas as tabelas e relacionamentos.
-- `modelo.dbml`: Versão compatível com [dbdiagram.io](https://dbdiagram.io/d/dbml-684492415a9a94714e5b56ba) para visualização gráfica do modelo.
+- `modelo.dbml`: Versão compatível com [https://dbdiagram.io/d/dbml-684492415a9a94714e5b56ba] para visualização gráfica do modelo.
 
