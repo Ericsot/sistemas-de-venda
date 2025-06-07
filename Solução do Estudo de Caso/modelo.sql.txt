@@ -1,0 +1,51 @@
+Table Clientes {
+  IdCliente INT [pk, increment]
+  Nome VARCHAR(100)
+  CPF CHAR(11)
+  Telefone VARCHAR(15)
+  Email VARCHAR(100)
+  Endereco VARCHAR(200)
+}
+
+Table Colaboradores {
+  IdColaborador INT [pk, increment]
+  Nome VARCHAR(100)
+  CPF CHAR(11)
+  Cargo VARCHAR(50)
+}
+
+Table Produtos {
+  IdProduto INT [pk, increment]
+  Nome VARCHAR(100)
+  CodigoBarras VARCHAR(50)
+  Categoria VARCHAR(50)
+  Preco DECIMAL(10,2)
+  Estoque INT
+}
+
+Table Vendas {
+  IdVenda INT [pk, increment]
+  IdCliente INT
+  IdColaborador INT
+  DataVenda DATETIME [default: `CURRENT_TIMESTAMP`]
+  Total DECIMAL(10,2)
+  FormaPagamento VARCHAR(20)
+
+  Note: "IdCliente e IdColaborador são chaves estrangeiras"
+}
+
+Table ItensVenda {
+  IdItem INT [pk, increment]
+  IdVenda INT
+  IdProduto INT
+  Quantidade INT
+  PrecoUnitario DECIMAL(10,2)
+  Desconto DECIMAL(10,2)
+
+  Note: "IdVenda e IdProduto são chaves estrangeiras"
+}
+
+Ref: Vendas.IdCliente > Clientes.IdCliente
+Ref: Vendas.IdColaborador > Colaboradores.IdColaborador
+Ref: ItensVenda.IdVenda > Vendas.IdVenda
+Ref: ItensVenda.IdProduto > Produtos.IdProduto
